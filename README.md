@@ -26,12 +26,13 @@ dotnet tool install --global dotnet-ef
 
 Ensure you have MySQL server running. You can update the connection string in:
 
-- `src/StudentManagement.Api/appsettings.json`
+- `students/StudentManagement.Api/appsettings.json`
 - `migrations/StudentManagement.Migrations/appsettings.json`
 
 Default connection string:
-```
-Server=localhost;Database=StudentManagement;User=root;Password=root;
+
+```JSON
+Server=localhost;Database=StudentManagement;User=root;Password=212752;
 ```
 
 ### 3. Run Migrations
