@@ -3,7 +3,7 @@ GET http://localhost:5221/api/students
 Content-Type: application/json
 
 ### Get a specific student by ID
-GET http://localhost:5221/api/students/1
+GET http://localhost:5221/api/students/{{$randomInt 1 101}}
 Content-Type: application/json
 
 ### Create a new student
