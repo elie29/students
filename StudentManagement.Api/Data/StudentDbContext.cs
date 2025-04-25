@@ -8,19 +8,19 @@ namespace StudentManagement.Api.Data
         public StudentDbContext(DbContextOptions<StudentDbContext> options) : base(options)
         {
         }
-        
+
         public DbSet<Student> Students { get; set; }
         public DbSet<Professor> Professors { get; set; }
         public DbSet<Location> Locations { get; set; }
-        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            
+
             // Add any seed data or additional configuration here
             modelBuilder.Entity<Student>()
                 .HasIndex(s => s.Email)
                 .IsUnique();
         }
     }
-} 
+}

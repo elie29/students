@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
 using StudentManagement.Api.Data;
 
 var builder = WebApplication.CreateBuilder(args);

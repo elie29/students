@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 using StudentManagement.Api.Models;
 
 namespace StudentManagement.Api.Data
@@ -26,25 +21,25 @@ namespace StudentManagement.Api.Data
                 if (!_context.Students.Any())
                 {
                     _logger.LogInformation("Students table is empty. Seeding sample data...");
-                    
+
                     // Seed with predefined students
                     await SeedStudentsAsync();
-                    
+
                     _logger.LogInformation("Sample student data seeding completed successfully.");
                 }
                 else
                 {
                     _logger.LogInformation("Students table already contains data. Skipping student seed operation.");
                 }
-                
+
                 // Only seed professors if the database is empty
                 if (!_context.Professors.Any())
                 {
                     _logger.LogInformation("Professors table is empty. Seeding sample data...");
-                    
+
                     // Seed with predefined professors
                     await SeedProfessorsAsync();
-                    
+
                     _logger.LogInformation("Sample professor data seeding completed successfully.");
                 }
                 else
@@ -62,27 +57,27 @@ namespace StudentManagement.Api.Data
         {
             // Create a list with predefined students with unique emails
             var students = GetPredefinedStudents();
-            
+
             // Add the students to the context
             await _context.Students.AddRangeAsync(students);
-            
+
             // Save changes to the database
             await _context.SaveChangesAsync();
-            
+
             _logger.LogInformation($"Successfully seeded {students.Count} students into the database.");
         }
-        
+
         private async Task SeedProfessorsAsync()
         {
             // Create a list with predefined professors
             var professors = GetPredefinedProfessors();
-            
+
             // Add the professors to the context
             await _context.Professors.AddRangeAsync(professors);
-            
+
             // Save changes to the database
             await _context.SaveChangesAsync();
-            
+
             _logger.LogInformation($"Successfully seeded {professors.Count} professors into the database.");
         }
 
@@ -192,62 +187,62 @@ namespace StudentManagement.Api.Data
                 new Student { FirstName = "Jordan", LastName = "Barnes", Email = "jordan.barnes@example.com", DateOfBirth = new DateTime(1997, 6, 18), Address = "159 Maple Boulevard, Columbus, OH" }
             };
         }
-        
+
         private List<Professor> GetPredefinedProfessors()
         {
             return new List<Professor>
             {
-                new Professor { 
-                    FirstName = "Robert", 
-                    LastName = "Johnson", 
-                    CourseTitle = "Introduction to Computer Science" 
+                new Professor {
+                    FirstName = "Robert",
+                    LastName = "Johnson",
+                    CourseTitle = "Introduction to Computer Science"
                 },
-                new Professor { 
-                    FirstName = "Sarah", 
-                    LastName = "Williams", 
-                    CourseTitle = "Advanced Mathematics" 
+                new Professor {
+                    FirstName = "Sarah",
+                    LastName = "Williams",
+                    CourseTitle = "Advanced Mathematics"
                 },
-                new Professor { 
-                    FirstName = "Michael", 
-                    LastName = "Brown", 
-                    CourseTitle = "Physics 101" 
+                new Professor {
+                    FirstName = "Michael",
+                    LastName = "Brown",
+                    CourseTitle = "Physics 101"
                 },
-                new Professor { 
-                    FirstName = "Jennifer", 
-                    LastName = "Davis", 
-                    CourseTitle = "English Literature" 
+                new Professor {
+                    FirstName = "Jennifer",
+                    LastName = "Davis",
+                    CourseTitle = "English Literature"
                 },
-                new Professor { 
-                    FirstName = "David", 
-                    LastName = "Miller", 
-                    CourseTitle = "Introduction to Biology" 
+                new Professor {
+                    FirstName = "David",
+                    LastName = "Miller",
+                    CourseTitle = "Introduction to Biology"
                 },
-                new Professor { 
-                    FirstName = "Elizabeth", 
-                    LastName = "Wilson", 
-                    CourseTitle = "Chemistry Fundamentals" 
+                new Professor {
+                    FirstName = "Elizabeth",
+                    LastName = "Wilson",
+                    CourseTitle = "Chemistry Fundamentals"
                 },
-                new Professor { 
-                    FirstName = "James", 
-                    LastName = "Taylor", 
-                    CourseTitle = "Introduction to Psychology" 
+                new Professor {
+                    FirstName = "James",
+                    LastName = "Taylor",
+                    CourseTitle = "Introduction to Psychology"
                 },
-                new Professor { 
-                    FirstName = "Patricia", 
-                    LastName = "Anderson", 
-                    CourseTitle = "Business Administration" 
+                new Professor {
+                    FirstName = "Patricia",
+                    LastName = "Anderson",
+                    CourseTitle = "Business Administration"
                 },
-                new Professor { 
-                    FirstName = "Richard", 
-                    LastName = "Thomas", 
-                    CourseTitle = "Economics 101" 
+                new Professor {
+                    FirstName = "Richard",
+                    LastName = "Thomas",
+                    CourseTitle = "Economics 101"
                 },
-                new Professor { 
-                    FirstName = "Linda", 
-                    LastName = "Jackson", 
-                    CourseTitle = "Introduction to Philosophy" 
+                new Professor {
+                    FirstName = "Linda",
+                    LastName = "Jackson",
+                    CourseTitle = "Introduction to Philosophy"
                 }
             };
         }
     }
-} 
+}
