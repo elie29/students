@@ -10,6 +10,8 @@ A .NET C# application that manages students with a MySQL database using EF Core.
 ## Requirements
 
 - .NET 9.0 SDK
+- Microsoft.AspNetCore.OpenApi:
+  - swagger not included(Swashbuckle.AspNetCore), so the url for API endpoints would be (<http://localhost:5221/openapi/v1.json>)
 - MySQL Server
 - Entity Framework Core Tools
 
@@ -53,8 +55,8 @@ dotnet run
 
 The API will be available at:
 
-- https://localhost:5001/api/students (HTTPS)
-- http://localhost:5000/api/students (HTTP)
+- <https://localhost:5001/api/students> (HTTPS)
+- <http://localhost:5000/api/students>(HTTP)
 
 ## Managing Migrations
 
